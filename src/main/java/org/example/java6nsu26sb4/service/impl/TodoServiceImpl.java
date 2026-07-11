@@ -47,7 +47,7 @@ public class TodoServiceImpl implements TodoService {
 
                     return todoRepository.save(existing);
                 })
-                .orElse(null);
+                .orElseThrow(() -> new CustomResourceNotFoundException("Todo not found for this id: " + id));
     }
 
     @Override
